@@ -28,14 +28,11 @@ expected_results = [
 	(OnlineNews, (39644, 58), (39644, 1), 'regression', None),
 	(PowerPlant, (9568, 4), (9568, 1), 'regression', None),
 	(Parkinson, (5875, 20), (5875, 2), 'regression', None),
-	
 	(RealEstate, (414, 6), (414, 1), 'regression', None),
 	(Superconductivity, (21263, 81), (21263, 1), 'regression', None),
 	(YachtHydrodynamics, (308, 6), (308, 1), 'regression', None),
 	(WhiteWineQuality, (4898, 11), (4898, 1), 'regression', None),
 ]
-
-
 
 
 def test_shapes():
@@ -67,6 +64,11 @@ def test_n_classes():
 		if problem_type == 'classification':
 			z = dataset()
 			assert z.num_classes == num_classes, 'The number of classes should be as expected for %s' % z.name
+
+
+def test_num_datasets():
+	n_datasets = len(all_uci_regression_datasets + all_uci_classification_datasets)
+	assert n_datasets > 20, 'There should be more than 20 datasets'
 
 
 
