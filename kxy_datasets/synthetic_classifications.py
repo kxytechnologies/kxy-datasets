@@ -12,8 +12,10 @@ class GenericSyntheticClassification(BaseSyntheticClassification):
 	'''
 	Generic synthetic classification dataset with independent features and known theoretical-best accuracy.
 	'''
-	def __init__(self, achievable_accuracy, d, n, input_distribution=np.random.rand):
+	def __init__(self, achievable_accuracy, d, n, input_distribution=np.random.rand, seed=None):
 		super(GenericSyntheticClassification, self).__init__()
+		if seed:
+			np.random.seed(seed)
 		self.x = input_distribution(n, d)
 		fx = self.latent_function(self.x)
 		assert np.can_cast(fx, int), 'Classes should be integer by convention'

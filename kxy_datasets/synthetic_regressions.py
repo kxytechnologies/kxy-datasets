@@ -13,8 +13,10 @@ class GenericSyntheticRegression(BaseSyntheticRegression):
 	Generic synthetic regression dataset with independent features and known theoretical-best r-squared.
 	'''
 	def __init__(self, achievable_r_squared, d, n, input_distribution=np.random.rand, \
-			noise_distribution=np.random.randn):
+			noise_distribution=np.random.randn, seed=None):
 		super(GenericSyntheticRegression, self).__init__()
+		if seed:
+			np.random.seed(seed)
 		self.x = input_distribution(n, d)
 		self.fx = self.latent_function(self.x)
 		noise_std = np.sqrt((np.var(self.fx)/achievable_r_squared)-np.var(self.fx))

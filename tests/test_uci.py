@@ -68,7 +68,7 @@ def test_n_classes():
 
 def test_num_datasets():
 	n_datasets = len(all_uci_regression_datasets + all_uci_classification_datasets)
-	assert n_datasets > 20, 'There should be more than 20 datasets'
+	assert n_datasets > 23, 'There should be more than 20 datasets'
 
 
 
