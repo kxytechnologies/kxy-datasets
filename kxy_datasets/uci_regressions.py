@@ -12,12 +12,12 @@ import numpy as np
 import pandas as pd
 from urllib import request
 
-from kxy_datasets.base import BaseRealRegression
+from kxy_datasets.base import UCIBaseRegression
 from kxy_datasets.utils import extract_from_url
 
 
 
-class Abalone(BaseRealRegression):
+class Abalone(UCIBaseRegression):
 	"""
 	Reference: https://archive.ics.uci.edu/ml/datasets/Abalone
 	"""
@@ -36,7 +36,7 @@ class Abalone(BaseRealRegression):
 
 
 
-class AirFoil(BaseRealRegression):
+class AirFoil(UCIBaseRegression):
 	"""
 	Reference: https://archive.ics.uci.edu/ml/datasets/Airfoil+Self-Noise
 	"""
@@ -53,7 +53,7 @@ class AirFoil(BaseRealRegression):
 
 
 
-class AirQuality(BaseRealRegression):
+class AirQuality(UCIBaseRegression):
 	"""
 	Reference: https://archive.ics.uci.edu/ml/datasets/Air+Quality
 	"""
@@ -87,7 +87,7 @@ class AirQuality(BaseRealRegression):
 
 
 
-class BlogFeedback(BaseRealRegression):
+class BlogFeedback(UCIBaseRegression):
 	"""
 	Reference: https://archive.ics.uci.edu/ml/datasets/BlogFeedback
 	"""
@@ -126,7 +126,7 @@ class BlogFeedback(BaseRealRegression):
 
 
 
-class CTSlices(BaseRealRegression):
+class CTSlices(UCIBaseRegression):
 	"""
 	Reference: https://archive.ics.uci.edu/ml/datasets/Relative+location+of+CT+slices+on+axial+axis
 	"""
@@ -147,7 +147,7 @@ class CTSlices(BaseRealRegression):
 
 
 
-class FacebookComments(BaseRealRegression):
+class FacebookComments(UCIBaseRegression):
 	"""
 	Reference: https://archive.ics.uci.edu/ml/datasets/Facebook+Comment+Volume+Dataset
 	"""
@@ -177,7 +177,7 @@ class FacebookComments(BaseRealRegression):
 
 
 
-class OnlineNews(BaseRealRegression):
+class OnlineNews(UCIBaseRegression):
 	"""
 	Reference: https://archive.ics.uci.edu/ml/datasets/Online+News+Popularity
 	"""
@@ -198,7 +198,7 @@ class OnlineNews(BaseRealRegression):
 
 
 
-class Parkinson(BaseRealRegression):
+class Parkinson(UCIBaseRegression):
 	"""
 	Reference: http://archive.ics.uci.edu/ml/datasets/parkinsons
 	"""
@@ -216,7 +216,7 @@ class Parkinson(BaseRealRegression):
 
 
 
-class PowerPlant(BaseRealRegression):
+class PowerPlant(UCIBaseRegression):
 	"""
 	Reference: https://archive.ics.uci.edu/ml/datasets/combined+cycle+power+plant
 	"""
@@ -236,7 +236,7 @@ class PowerPlant(BaseRealRegression):
 
 
 
-class RealEstate(BaseRealRegression):
+class RealEstate(UCIBaseRegression):
 	"""
 	Reference: http://archive.ics.uci.edu/ml/datasets/Real+estate+valuation+data+set
 	"""
@@ -253,7 +253,7 @@ class RealEstate(BaseRealRegression):
 
 
 
-class Superconductivity(BaseRealRegression):
+class Superconductivity(UCIBaseRegression):
 	"""
 	Reference: https://archive.ics.uci.edu/ml/datasets/superconductivty+data
 	"""
@@ -273,7 +273,7 @@ class Superconductivity(BaseRealRegression):
 
 
 
-class YachtHydrodynamics(BaseRealRegression):
+class YachtHydrodynamics(UCIBaseRegression):
 	"""
 	Reference: http://archive.ics.uci.edu/ml/datasets/yacht+hydrodynamics
 	"""
@@ -295,7 +295,7 @@ class YachtHydrodynamics(BaseRealRegression):
 
 
 
-class WhiteWineQuality(BaseRealRegression):
+class WhiteWineQuality(UCIBaseRegression):
 	"""
 	Reference: http://archive.ics.uci.edu/ml/datasets/Wine+Quality
 	"""

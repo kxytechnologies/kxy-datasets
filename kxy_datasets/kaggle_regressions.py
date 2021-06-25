@@ -11,11 +11,11 @@ import pandas as pd
 from unlzw import unlzw
 from urllib import request
 
-from kxy_datasets.base import BaseRealRegression
+from kxy_datasets.base import KaggleBaseRegression
 from kxy_datasets.utils import extract_from_url
 
 
-class HousePricesAdvanced(BaseRealRegression):
+class HousePricesAdvanced(KaggleBaseRegression):
 	"""
 	Reference: https://www.kaggle.com/c/house-prices-advanced-regression-techniques/
 	"""

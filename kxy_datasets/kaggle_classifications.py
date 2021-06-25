@@ -11,12 +11,12 @@ import pandas as pd
 from unlzw import unlzw
 from urllib import request
 
-from kxy_datasets.base import BaseRealClassification
+from kxy_datasets.base import KaggleBaseClassification
 from kxy_datasets.utils import extract_from_url
 
 
 
-class HeartAttack(BaseRealClassification):
+class HeartAttack(KaggleBaseClassification):
 	"""
 	Reference: https://www.kaggle.com/rashikrahmanpritom/heart-attack-analysis-prediction-dataset
 	"""
@@ -33,7 +33,7 @@ class HeartAttack(BaseRealClassification):
 		self.classes = list(set(list(self.y.flatten())))
 
 
-class HeartDisease(BaseRealClassification):
+class HeartDisease(KaggleBaseClassification):
 	"""
 	Reference: https://www.kaggle.com/ronitf/heart-disease-uci
 	"""
@@ -51,7 +51,7 @@ class HeartDisease(BaseRealClassification):
 
 
 
-class Titanic(BaseRealClassification):
+class Titanic(KaggleBaseClassification):
 	"""
 	Reference: https://www.kaggle.com/c/titanic/
 	"""
@@ -68,7 +68,7 @@ class Titanic(BaseRealClassification):
 		self.classes = list(set(list(self.y.flatten())))
 
 
-class WaterQuality(BaseRealClassification):
+class WaterQuality(KaggleBaseClassification):
 	"""
 	Reference: https://www.kaggle.com/adityakadiwal/water-potability
 	"""

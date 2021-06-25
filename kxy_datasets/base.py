@@ -89,4 +89,29 @@ class BaseRealRegression(BaseDataset):
         return 'regression'
 
 
+class KaggleBaseClassification(BaseRealClassification):
+    @property
+    def name(self):
+        return getattr(self, '__name__', 'Kaggle' + self.__class__.__name__)
+
+
+class KaggleBaseRegression(BaseRealRegression):
+    @property
+    def name(self):
+        return getattr(self, '__name__', 'Kaggle' + self.__class__.__name__)
+
+
+class UCIBaseClassification(BaseRealClassification):
+    @property
+    def name(self):
+        return getattr(self, '__name__', 'UCI' + self.__class__.__name__)
+
+
+class UCIBaseRegression(BaseRealRegression):
+    @property
+    def name(self):
+        return getattr(self, '__name__', 'UCI' + self.__class__.__name__)
+
+
+
 

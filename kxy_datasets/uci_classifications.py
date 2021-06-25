@@ -11,11 +11,11 @@ import pandas as pd
 from unlzw import unlzw
 from urllib import request
 
-from kxy_datasets.base import BaseRealClassification
+from kxy_datasets.base import UCIBaseClassification
 from kxy_datasets.utils import extract_from_url
 
 
-class Adult(BaseRealClassification):
+class Adult(UCIBaseClassification):
     """
     Reference: https://archive.ics.uci.edu/ml/datasets/adult
     """
@@ -54,7 +54,7 @@ class Adult(BaseRealClassification):
 
 
 
-class APSFailure(BaseRealClassification):
+class APSFailure(UCIBaseClassification):
     """
     Reference: https://archive.ics.uci.edu/ml/datasets/APS+Failure+at+Scania+Trucks
     """
@@ -83,7 +83,7 @@ class APSFailure(BaseRealClassification):
 
 
 
-class Avila(BaseRealClassification):
+class Avila(UCIBaseClassification):
     """
     Reference: https://archive.ics.uci.edu/ml/datasets/Avila
     """
@@ -115,7 +115,7 @@ class Avila(BaseRealClassification):
         self.y_column = y_columns[0]
 
 
-class BankMarketing(BaseRealClassification):
+class BankMarketing(UCIBaseClassification):
     """
     Reference: https://archive.ics.uci.edu/ml/datasets/Bank+Marketing
     """
@@ -137,7 +137,7 @@ class BankMarketing(BaseRealClassification):
 
 
 
-class BankNote(BaseRealClassification):
+class BankNote(UCIBaseClassification):
     """
     Reference: https://archive.ics.uci.edu/ml/datasets/banknote+authentication
     """
@@ -157,7 +157,7 @@ class BankNote(BaseRealClassification):
 
 
 
-class CardDefault(BaseRealClassification):
+class CardDefault(UCIBaseClassification):
     """
     Reference: https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients
     """
@@ -177,7 +177,7 @@ class CardDefault(BaseRealClassification):
 
 
 
-class Landsat(BaseRealClassification):
+class Landsat(UCIBaseClassification):
     """
     Reference: https://archive.ics.uci.edu/ml/datasets/Statlog+(Landsat+Satellite)
     """
@@ -205,7 +205,7 @@ class Landsat(BaseRealClassification):
 
 
 
-class LetterRecognition(BaseRealClassification):
+class LetterRecognition(UCIBaseClassification):
     """
     Reference: https://archive.ics.uci.edu/ml/datasets/letter+recognition
     """
@@ -224,7 +224,7 @@ class LetterRecognition(BaseRealClassification):
 
 
 
-class MagicGamma(BaseRealClassification):
+class MagicGamma(UCIBaseClassification):
     """
     Reference: https://archive.ics.uci.edu/ml/datasets/magic+gamma+telescope
     """
@@ -243,7 +243,7 @@ class MagicGamma(BaseRealClassification):
 
 
 
-class SensorLessDrive(BaseRealClassification):
+class SensorLessDrive(UCIBaseClassification):
     """
     Reference: https://archive.ics.uci.edu/ml/datasets/dataset+for+sensorless+drive+diagnosis
     """
@@ -262,7 +262,7 @@ class SensorLessDrive(BaseRealClassification):
 
 
 
-class Shuttle(BaseRealClassification):
+class Shuttle(UCIBaseClassification):
     """
     Reference: https://archive.ics.uci.edu/ml/datasets/Statlog+(Shuttle)
     """
