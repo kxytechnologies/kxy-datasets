@@ -131,8 +131,9 @@ class HexagonalBoundaryBin(GenericSyntheticClassification):
 
 # Binary classification datasets with correlated features
 class LinearBoundaryBinCorr(LinearBoundaryBin):
-	def __init__(self, achievable_accuracy, d, n, input_distribution=np.random.rand, w=None):
-		super(LinearBoundaryBinCorr, self).__init__(achievable_accuracy, d, n, input_distribution=input_distribution)
+	def __init__(self, achievable_accuracy, d, n, input_distribution=np.random.rand, w=None, seed=None):
+		super(LinearBoundaryBinCorr, self).__init__(achievable_accuracy, d, n, input_distribution=input_distribution, \
+			seed=seed)
 		if w is None:
 			# If the mixing matrix is not provided, use a random mixing matrix.
 			w = np.random.rand(self.num_features, self.num_features)
@@ -140,8 +141,9 @@ class LinearBoundaryBinCorr(LinearBoundaryBin):
 
 
 class BandBoundaryBinCorr(BandBoundaryBin):
-	def __init__(self, achievable_accuracy, d, n, input_distribution=np.random.rand, w=None):
-		super(BandBoundaryBinCorr, self).__init__(achievable_accuracy, d, n, input_distribution=input_distribution)
+	def __init__(self, achievable_accuracy, d, n, input_distribution=np.random.rand, w=None, seed=None):
+		super(BandBoundaryBinCorr, self).__init__(achievable_accuracy, d, n, input_distribution=input_distribution, \
+			seed=seed)
 		if w is None:
 			# If the mixing matrix is not provided, use a random mixing matrix.
 			w = np.random.rand(self.num_features, self.num_features)
@@ -149,8 +151,9 @@ class BandBoundaryBinCorr(BandBoundaryBin):
 
 
 class EllipticalBoundaryBinCorr(EllipticalBoundaryBin):
-	def __init__(self, achievable_accuracy, d, n, input_distribution=np.random.rand, w=None):
-		super(EllipticalBoundaryBinCorr, self).__init__(achievable_accuracy, d, n, input_distribution=input_distribution)
+	def __init__(self, achievable_accuracy, d, n, input_distribution=np.random.rand, w=None, seed=None):
+		super(EllipticalBoundaryBinCorr, self).__init__(achievable_accuracy, d, n, input_distribution=input_distribution, \
+			seed=seed)
 		if w is None:
 			# If the mixing matrix is not provided, use a random mixing matrix.
 			w = np.random.rand(self.num_features, self.num_features)
@@ -158,8 +161,9 @@ class EllipticalBoundaryBinCorr(EllipticalBoundaryBin):
 
 
 class HexagonalBoundaryBinCorr(HexagonalBoundaryBin):
-	def __init__(self, achievable_accuracy, d, n, input_distribution=np.random.rand, w=None):
-		super(HexagonalBoundaryBinCorr, self).__init__(achievable_accuracy, d, n, input_distribution=input_distribution)
+	def __init__(self, achievable_accuracy, d, n, input_distribution=np.random.rand, w=None, seed=None):
+		super(HexagonalBoundaryBinCorr, self).__init__(achievable_accuracy, d, n, input_distribution=input_distribution, \
+			seed=seed)
 		if w is None:
 			# If the mixing matrix is not provided, use a random rmixing matrix.
 			w = np.random.rand(self.num_features, self.num_features)

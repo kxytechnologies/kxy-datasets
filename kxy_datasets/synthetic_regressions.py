@@ -108,9 +108,9 @@ class TANHABSReg(GenericSyntheticRegression):
 # Regression datasets with correlated continuous features.
 class LINRegCorr(LINReg):
 	def __init__(self, achievable_r_squared, d, n, input_distribution=np.random.rand, \
-			noise_distribution=np.random.randn, w=None):
+			noise_distribution=np.random.randn, w=None, seed=None):
 		super(LINRegCorr, self).__init__(achievable_r_squared, d, n, input_distribution=input_distribution, \
-			noise_distribution=noise_distribution)
+			noise_distribution=noise_distribution, seed=seed)
 		if w is None:
 			# If the mixing matrix is not provided, use a random rmixing matrix.
 			w = np.random.rand(self.num_features, self.num_features)
@@ -119,9 +119,9 @@ class LINRegCorr(LINReg):
 
 class SQRTABSRegCorr(SQRTABSReg):
 	def __init__(self, achievable_r_squared, d, n, input_distribution=np.random.rand, \
-			noise_distribution=np.random.randn, w=None):
+			noise_distribution=np.random.randn, w=None, seed=None):
 		super(SQRTABSRegCorr, self).__init__(achievable_r_squared, d, n, input_distribution=input_distribution, \
-			noise_distribution=noise_distribution)
+			noise_distribution=noise_distribution, seed=seed)
 		if w is None:
 			# If the mixing matrix is not provided, use a random rmixing matrix.
 			w = np.random.rand(self.num_features, self.num_features)
@@ -130,9 +130,9 @@ class SQRTABSRegCorr(SQRTABSReg):
 
 class CUBABSRegCorr(CUBABSReg):
 	def __init__(self, achievable_r_squared, d, n, input_distribution=np.random.rand, \
-			noise_distribution=np.random.randn, w=None):
+			noise_distribution=np.random.randn, w=None, seed=None):
 		super(CUBABSRegCorr, self).__init__(achievable_r_squared, d, n, input_distribution=input_distribution, \
-			noise_distribution=noise_distribution)
+			noise_distribution=noise_distribution, seed=seed)
 		if w is None:
 			# If the mixing matrix is not provided, use a random rmixing matrix.
 			w = np.random.rand(self.num_features, self.num_features)
@@ -141,9 +141,9 @@ class CUBABSRegCorr(CUBABSReg):
 
 class TANHABSRegCorr(TANHABSReg):
 	def __init__(self, achievable_r_squared, d, n, input_distribution=np.random.rand, \
-			noise_distribution=np.random.randn, w=None):
+			noise_distribution=np.random.randn, w=None, seed=None):
 		super(TANHABSRegCorr, self).__init__(achievable_r_squared, d, n, input_distribution=input_distribution, \
-			noise_distribution=noise_distribution)
+			noise_distribution=noise_distribution, seed=seed)
 		if w is None:
 			# If the mixing matrix is not provided, use a random rmixing matrix.
 			w = np.random.rand(self.num_features, self.num_features)
