@@ -130,14 +130,14 @@ dmypy.json
 
 *.csv
 
-AirQuality/
-Avila/
-BankMarketing/
-BlogFeedback/
-CTSlices/
-FacebookComments/
-OnlineNews/
-PowerPlant/
-Shuttle/
-Superconductivity/
+UCIAirQuality/
+UCIAvila/
+UCIBankMarketing/
+UCIBlogFeedback/
+UCICTSlices/
+UCIFacebookComments/
+UCIOnlineNews/
+UCIPowerPlant/
+UCIShuttle/
+UCISuperconductivity/
 

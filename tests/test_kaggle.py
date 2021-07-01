@@ -32,6 +32,7 @@ def test_df():
 		df_shape = (x_shape[0], x_shape[1]+y_shape[1])
 		z = dataset()
 		assert z.df.shape == df_shape, 'The shape of .df should be as expected for %s' % z.name
+		assert z.y_column in z.df.columns, 'y_column should be a valid column for %s' % z.name
 
 
 def test_problem_type():
