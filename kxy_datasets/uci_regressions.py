@@ -213,6 +213,7 @@ class Parkinson(UCIBaseRegression):
 		self.y = df[y_columns].values
 		self.x_columns = x_columns
 		self.y_columns = y_columns
+		self.y_column = y_columns[0]
 
 
 
