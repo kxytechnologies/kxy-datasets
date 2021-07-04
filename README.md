@@ -1,5 +1,14 @@
-# kxy-datasets
-A Python package to access classification and regression datasets, synthetic and real-life (UCI, Kaggle, etc.) in a normalized format.
+<div align="center">
+  <img src="https://www.kxy.ai/theme/images/logos/logo.svg"><br>
+</div>
+
+-----------------
+
+# A Python package to access ML datasets (UCI, Kaggle, synthetic, etc.) in a normalized format.
+[![License](https://img.shields.io/badge/license-GPLv3%2B-blue)](https://github.com/kxytechnologies/kxy-datasets/blob/master/LICENSE)
+[![PyPI Latest Release](https://img.shields.io/pypi/v/kxy-datasets.svg)](https://www.kxy.ai/)
+[![Downloads](https://pepy.tech/badge/kxy-datasets)](https://www.kxy.ai/)
+
 
 
 ## Example real-life datasets
