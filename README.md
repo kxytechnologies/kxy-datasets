@@ -88,6 +88,32 @@ Synthetic classification datasets (with known theoretical-best performance achie
 >>> from kxy_datasets.synthetic_classifications import EllipticalBoundaryBin
 ```
 
+## Data valuation and model-free variable selection with the kxy package
+Data valuation
+```
+>>> from kxy_datasets.kaggle_classifications import Titanic
+>>> titanic = Titanic()
+>>> titanic.data_valuation()
+[====================================================================================================] 100% ETA: 0s   
+  Achievable R-Squared Achievable Log-Likelihood Per Sample Achievable Accuracy
+0                 0.53                            -2.89e-01                0.92
+```
+Model-free variable selection
+```
+>>> titanic.variable_selection()
+[====================================================================================================] 100% ETA: 0s   
+                    Variable Running Achievable R-Squared Running Achievable Accuracy
+Selection Order                                                                      
+0                No Variable                         0.00                        0.62
+1                        Sex                         0.26                        0.79
+2                PassengerId                         0.27                        0.79
+3                     Pclass                         0.37                        0.84
+4                      Parch                         0.37                        0.84
+5                        Age                         0.48                        0.90
+6                   Embarked                         0.48                        0.90
+7                      SibSp                         0.53                        0.92
+8                       Fare                         0.53                        0.92
+```
 
 
 
