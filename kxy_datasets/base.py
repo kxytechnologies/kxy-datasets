@@ -38,6 +38,11 @@ class BaseDataset(abc.ABC):
         else:
             return self._df
 
+    @property
+    @abc.abstractmethod
+    def problem_type(self):
+        raise NotImplementedError
+
     def data_valuation(self):
         '''
         Uses the kxy package to estimate the highest performance achievable.
