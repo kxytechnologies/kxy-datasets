@@ -32,8 +32,5 @@ class HousePricesAdvanced(KaggleBaseRegression):
 		self.y_column = y_columns[0]
 
 
-
-
-all_kaggle_regression_datasets = [\
-	HousePricesAdvanced
-]
+all_kaggle_regression_datasets = [cls for _, cls in inspect.getmembers(sys.modules[__name__]) \
+	if inspect.isclass(cls) and issubclass(cls, KaggleBaseRegression) and cls != KaggleBaseRegression]

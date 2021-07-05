@@ -12,7 +12,7 @@ from setuptools import setup, find_packages
 with open('README.md') as f:
 	long_description = f.read()
 	
-version = "0.0.8"
+version = "0.0.9"
 setup(name="kxy_datasets",
 	version=version,
 	zip_safe=False,

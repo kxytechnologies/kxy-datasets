@@ -281,11 +281,6 @@ class Shuttle(UCIBaseClassification):
         self.classes = list(set(list(self.y.flatten())))
 
 
-
-all_uci_classification_datasets = [\
-    Adult, APSFailure, Avila, BankMarketing, BankNote, CardDefault, Landsat, LetterRecognition, \
-    MagicGamma, SensorLessDrive, Shuttle
-]
-
-
+all_uci_classification_datasets = [cls for _, cls in inspect.getmembers(sys.modules[__name__]) \
+    if inspect.isclass(cls) and issubclass(cls, UCIBaseClassification) and cls != UCIBaseClassification]
 

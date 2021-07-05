@@ -4,6 +4,7 @@ import abc
 
 import numpy as np
 import pandas as pd
+import kxy
 
 
 class BaseDataset(abc.ABC):
@@ -36,6 +37,18 @@ class BaseDataset(abc.ABC):
 
         else:
             return self._df
+
+    def data_valuation(self):
+        '''
+        Uses the kxy package to estimate the highest performance achievable.
+        '''
+        return self.df.kxy.data_valuation(self.y_column, problem_type=self.problem_type)
+
+    def variable_selection(self):
+        '''
+        Use the kxy package to perform model-free variable selection.
+        '''
+        return self.df.kxy.variable_selection(self.y_column, problem_type=self.problem_type)
 
 
 

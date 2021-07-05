@@ -4,3 +4,4 @@ pandas>==0.23.0
 requests==2.22.0
 unlzw
 s3fs
+kxy

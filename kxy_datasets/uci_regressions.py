@@ -310,15 +310,9 @@ class WhiteWineQuality(UCIBaseRegression):
 		self.y = df[y_columns].values
 		self.x_columns = x_columns
 		self.y_column = y_columns[0]
+		
 
-
-
-all_uci_regression_datasets = [\
-	Abalone, AirFoil, AirQuality, BlogFeedback, CTSlices, FacebookComments, OnlineNews, PowerPlant, \
-	Parkinson, RealEstate, Superconductivity, YachtHydrodynamics, WhiteWineQuality
-]
-
-
-
+all_uci_regression_datasets = [cls for _, cls in inspect.getmembers(sys.modules[__name__]) \
+	if inspect.isclass(cls) and issubclass(cls, UCIBaseRegression) and cls != UCIBaseRegression]
 
 

@@ -86,10 +86,7 @@ class WaterQuality(KaggleBaseClassification):
 
 
 
-
-
-all_kaggle_classification_datasets = [
-	HeartAttack, HeartDisease, Titanic, WaterQuality
-]
+all_kaggle_classification_datasets = [cls for _, cls in inspect.getmembers(sys.modules[__name__]) \
+	if inspect.isclass(cls) and issubclass(cls, KaggleBaseClassification) and cls != KaggleBaseClassification]
 
 
