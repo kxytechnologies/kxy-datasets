@@ -23,27 +23,3 @@ def test_variable_selection():
 		assert False, 'kxy variable selection should succeed'
 
 
-if __name__ == '__main__':
-	# titanic = Titanic()
-	# print(titanic.data_valuation())
-	# print(titanic.variable_selection())
-
-	# house = HousePricesAdvanced()
-	# print(house.data_valuation())
-	# print(house.variable_selection())
-
-	# heart = HeartAttack()
-	# print(heart.data_valuation())
-	# print(heart.variable_selection())
-
-	# heart = HeartDisease()
-	# print(heart.data_valuation())
-	# print(heart.variable_selection())
-
-	# water = WaterQuality()
-	# print(water.data_valuation())
-	# print(water.variable_selection())
-
-	card = Avila()
-	print(card.data_valuation())
-	print(card.variable_selection())
