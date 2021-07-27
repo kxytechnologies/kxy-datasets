@@ -6,6 +6,38 @@ import numpy as np
 import pandas as pd
 import kxy
 
+class CrossValidator:
+    def __init__(self, x, y, train_proportion, n_splits, seed=None):
+        self.x = x
+        self.y = y
+        self.n = self.x.shape[0]
+        self.random_gen = np.random.RandomState(seed)
+        self.train_proportion = train_proportion
+        self.n_splits = n_splits
+
+
+    def __iter__(self):
+        self.count = 1
+        return self
+
+
+    def __next__(self):
+        if self.count <= self.n_splits:
+            train_selector = self.random_gen.rand(self.n) < self.train_proportion
+            x_train = self.x[train_selector, :]
+            y_train = self.y[train_selector, :]
+
+            test_selector = np.logical_not(train_selector)
+            x_test = self.x[test_selector, :]
+            y_test = self.y[test_selector, :]
+
+            self.count += 1
+
+            return x_train, y_train, x_test, y_test
+
+        else:
+            raise StopIteration
+
 
 class BaseDataset(abc.ABC):
     def __len__(self):
@@ -64,6 +96,13 @@ class BaseDataset(abc.ABC):
         Use the kxy package to perform model-free variable selection.
         '''
         return self.df.kxy.variable_selection(self.y_column, problem_type=self.problem_type)
+
+
+    def cv_split(self, train_proportion, n_splits, seed=None):
+        '''
+        Iterator that randomly splits the data into training and testing sets.
+        '''
+        return CrossValidator(self.x, self.y, train_proportion, n_splits, seed=seed)
 
 
 
