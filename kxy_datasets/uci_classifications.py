@@ -3,13 +3,18 @@
 """
 UCI classification datasets
 """
+import io
 import os
 import sys
 import inspect
 
+import logging
+import numpy as np
 import pandas as pd
 from unlzw import unlzw
 from urllib import request
+from scipy.io import arff
+
 
 from kxy_datasets.base import UCIBaseClassification
 from kxy_datasets.utils import extract_from_url
@@ -176,6 +181,36 @@ class CardDefault(UCIBaseClassification):
         self.y_column = y_columns[0]
 
 
+class DiabeticRetinopathy(UCIBaseClassification):
+    """
+    Reference: https://archive.ics.uci.edu/ml/datasets/Diabetic+Retinopathy+Debrecen+Data+Set
+    """
+    def __init__(self):
+        url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/00329/messidor_features.arff'
+        ftpstream =  request.urlopen(url)
+        data, meta = arff.loadarff(io.StringIO(ftpstream.read().decode('utf-8')))
+        data = np.array([list(_) for _ in data])
+        self.x = data[:, :-1].astype(float)
+        self.y = data[:, -1][:, None].astype(str)
+        self.classes = list(set(list(self.y.flatten())))
+        self.y_column = 'y'
+
+
+
+class EEGEyeState(UCIBaseClassification):
+    """
+    Reference: https://archive.ics.uci.edu/ml/datasets/EEG+Eye+State
+    """
+    def __init__(self):
+        url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/00264/EEG%20Eye%20State.arff'
+        ftpstream =  request.urlopen(url)
+        data, meta = arff.loadarff(io.StringIO(ftpstream.read().decode('utf-8')))
+        data = np.array([list(_) for _ in data])
+        self.x = data[:, :-1].astype(float)
+        self.y = data[:, -1][:, None].astype(str)
+        self.classes = list(set(list(self.y.flatten())))
+        self.y_column = 'y'
+
 
 class Landsat(UCIBaseClassification):
     """
@@ -281,6 +316,25 @@ class Shuttle(UCIBaseClassification):
         self.classes = list(set(list(self.y.flatten())))
 
 
+
+class SkinSegmentation(UCIBaseClassification):
+    """
+    Reference: https://archive.ics.uci.edu/ml/datasets/Skin+Segmentation
+    """
+    def __init__(self):
+        url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/00229/Skin_NonSkin.txt'
+        df = pd.read_csv(url, names=['B', 'G', 'R', 'y'], header=None, delimiter=r"\s+")
+        self._df = df
+        self.y_column = 'y'
+        y_columns = ['y']
+        x_columns = [_ for _ in df.columns if _ not in y_columns]
+        self.x = df[x_columns].values.astype(float)
+        self.y = df[y_columns].values.astype(str)
+        self.classes = list(set(list(self.y.flatten())))
+
+
+
 all_uci_classification_datasets = [cls for _, cls in inspect.getmembers(sys.modules[__name__]) \
     if inspect.isclass(cls) and issubclass(cls, UCIBaseClassification) and cls != UCIBaseClassification]
 
+    

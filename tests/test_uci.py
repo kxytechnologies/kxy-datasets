@@ -12,25 +12,34 @@ expected_results = [
 	(BankMarketing, (41188, 20), (41188, 1), 'classification', 2),
 	(BankNote, (1372, 4), (1372, 1), 'classification', 2),
 	(CardDefault, (30000, 23), (30000, 1), 'classification', 2),
+	(DiabeticRetinopathy, (1151, 19), (1151, 1), 'classification', 2),
+	(EEGEyeState, (14980, 14), (14980, 1), 'classification', 2),
 	(Landsat, (6435, 36), (6435, 1), 'classification', 6),
 	(LetterRecognition, (20000, 16), (20000, 1), 'classification', 26),
 	(MagicGamma, (19020, 10), (19020, 1), 'classification', 2),
 	(SensorLessDrive, (58509, 48), (58509, 1), 'classification', 11),
 	(Shuttle, (58000, 9), (58000, 1), 'classification', 7),
+	(SkinSegmentation, (245057, 3), (245057, 1), 'classification', 2),
 
 	# Regression datasets
 	(Abalone, (4177, 8), (4177, 1), 'regression', None),
 	(AirFoil, (1503, 5), (1503, 1), 'regression', None),
 	(AirQuality, (8991, 14), (8991, 1), 'regression', None),
+	(BikeSharing, (17379, 18), (17379, 1), 'regression', None),
 	(BlogFeedback, (60021, 280), (60021, 1), 'regression', None),
+	(Concrete, (1030, 8), (1030, 1), 'regression', None),
 	(CTSlices, (53500, 385), (53500, 1), 'regression', None),
+	(EnergyEfficiency, (768, 8), (768, 2), 'regression', None),
 	(FacebookComments, (209074, 53), (209074, 1), 'regression', None),
+	(NavalPropulsion, (11934, 16), (11934, 2), 'regression', None),
 	(OnlineNews, (39644, 58), (39644, 1), 'regression', None),
 	(PowerPlant, (9568, 4), (9568, 1), 'regression', None),
 	(Parkinson, (5875, 20), (5875, 2), 'regression', None),
 	(RealEstate, (414, 6), (414, 1), 'regression', None),
+	(SocialMediaBuzz, (583250, 77), (583250, 1), 'regression', None),
 	(Superconductivity, (21263, 81), (21263, 1), 'regression', None),
 	(YachtHydrodynamics, (308, 6), (308, 1), 'regression', None),
+	(YearPredictionMSD, (515345, 90), (515345, 1), 'regression', None),
 	(WhiteWineQuality, (4898, 11), (4898, 1), 'regression', None),
 ]
 
@@ -69,7 +78,7 @@ def test_n_classes():
 
 def test_num_datasets():
 	n_datasets = len(all_uci_regression_datasets + all_uci_classification_datasets)
-	assert n_datasets > 23, 'There should be more than 20 datasets'
+	assert n_datasets > 32, 'There should be more than 30 datasets'
 
 
 

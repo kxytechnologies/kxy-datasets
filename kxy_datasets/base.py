@@ -29,9 +29,19 @@ class BaseDataset(abc.ABC):
     @property
     def df(self):
         if getattr(self, '_df', None) is None:
-            self.y_columns = ['y'] if self.num_outputs == 1 else ['y_%d' % i for i in range(self.num_outputs)]
-            self.y_column = self.y_columns[0]
-            self.x_columns = ['x_%d' % i for i in range(self.num_features)]
+            if getattr(self, 'y_columns', None) is None and not getattr(self, 'y_column', None) is None:
+                self.y_columns = [self.y_column]
+
+            if getattr(self, 'y_columns', None) is None:
+                self.y_columns = ['y'] if self.num_outputs == 1 else ['y_%d' % i for i in range(self.num_outputs)]
+                self.y_column = self.y_columns[0]
+
+            if getattr(self, 'y_column', None) is None:
+                self.y_column = self.y_columns[0]
+                
+            if getattr(self, 'x_columns', None) is None:
+                self.x_columns = ['x_%d' % i for i in range(self.num_features)]
+
             columns = self.y_columns + self.x_columns
             return pd.DataFrame(np.concatenate([self.y, self.x], axis=1), columns=columns)
 

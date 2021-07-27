@@ -86,6 +86,27 @@ class AirQuality(UCIBaseRegression):
 		self.y_column = y_columns[0]
 
 
+class BikeSharing(UCIBaseRegression):
+	"""
+	Reference: https://archive.ics.uci.edu/ml/datasets/Bike+Sharing+Dataset
+	"""
+	def __init__(self, root_dir='./'):
+		dataset_path = os.path.join(root_dir, self.name)
+		url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/00275/Bike-Sharing-Dataset.zip'
+		extract_from_url(url, dataset_path)
+		file_path = os.path.join(dataset_path, 'hour.csv')
+		df = pd.read_csv(file_path)
+		df['dteyear'] = df['dteday'].apply(lambda r: int(r[:4]))
+		df['dtemonth'] = df['dteday'].apply(lambda r: int(r[5:7]))
+		df['dteday'] = 	df['dteday'].apply(lambda r: int(r[8:]))
+		y_columns = ['cnt']
+		x_columns = [_ for _ in df.columns if _ not in y_columns]
+		self.x = df[x_columns].values
+		self.y = df[y_columns].values
+		self._df = df
+		self.x_columns = x_columns
+		self.y_column = y_columns[0]
+
 
 class BlogFeedback(UCIBaseRegression):
 	"""
@@ -126,6 +147,26 @@ class BlogFeedback(UCIBaseRegression):
 
 
 
+class Concrete(UCIBaseRegression):
+	"""
+	Reference: https://archive.ics.uci.edu/ml/datasets/concrete+compressive+strength
+	"""
+	def __init__(self, root_dir='./'):
+		url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/concrete/compressive/Concrete_Data.xls'
+		names = ['Cement', 'Blast Furnace Slag', 'Fly Ash', 'Water', 'Superplasticizer', 'Coarse Aggregate', \
+			'Fine Aggregate', 'Age', 'Concrete Compressive Strength']
+
+		df = pd.read_excel(url, names=names)
+		y_columns = ['Concrete Compressive Strength']
+		x_columns = [_ for _ in df.columns if _ not in y_columns]
+		self.x = df[x_columns].values
+		self.y = df[y_columns].values
+		self._df = df
+		self.x_columns = x_columns
+		self.y_column = y_columns[0]
+
+
+
 class CTSlices(UCIBaseRegression):
 	"""
 	Reference: https://archive.ics.uci.edu/ml/datasets/Relative+location+of+CT+slices+on+axial+axis
@@ -144,6 +185,25 @@ class CTSlices(UCIBaseRegression):
 		self.y = df[y_columns].values
 		self.x_columns = x_columns
 		self.y_column = y_columns[0]
+
+
+
+class EnergyEfficiency(UCIBaseRegression):
+	"""
+	Reference: https://archive.ics.uci.edu/ml/datasets/Energy+efficiency
+	"""
+	def __init__(self, root_dir='./'):
+		url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/00242/ENB2012_data.xlsx'
+		df = pd.read_excel(url)
+		y_columns = ['Y1', 'Y2']
+		x_columns = ['X%d' % i for i in range(1, 9)]
+		columns = y_columns + x_columns
+		self._df = df[columns]
+		self.x = df[x_columns].values
+		self.y = df[y_columns].values
+		self.x_columns = x_columns
+		self.y_column = y_columns[0]
+
 
 
 
@@ -174,6 +234,28 @@ class FacebookComments(UCIBaseRegression):
 
 		self.x_columns = x_columns
 		self.y_column = y_columns[0]
+
+
+
+class NavalPropulsion(UCIBaseRegression):
+	"""
+	Reference: https://archive.ics.uci.edu/ml/datasets/Condition+Based+Maintenance+of+Naval+Propulsion+Plants
+	"""
+	def __init__(self, root_dir='./'):
+		dataset_path = os.path.join(root_dir, self.name)
+		url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/00316/UCI%20CBM%20Dataset.zip'
+		extract_from_url(url, dataset_path)
+		file_path = os.path.join(dataset_path, 'UCI CBM Dataset', 'data.txt')
+		names = ['LP', 'V', 'GTT', 'GTn', 'GGn', 'Ts', 'Tp', 'T48', 'T1', 'T2', 'P48', 'P1', 'P2', 'Pexh', 'TIC', 'mf', 'GT Compressor Decay', 'GT Turbine Decay']
+		df = pd.read_csv(file_path, names=names, sep='   ', engine='python')
+		self._df = df
+		y_columns = ['GT Compressor Decay', 'GT Turbine Decay']
+		x_columns = [_ for _ in df.columns if _ not in y_columns]
+		self.x = df[x_columns].values
+		self.y = df[y_columns].values
+		self.x_columns = x_columns
+		self.y_column = y_columns[0]
+		self.y_columns = y_columns
 
 
 
@@ -254,6 +336,40 @@ class RealEstate(UCIBaseRegression):
 
 
 
+class SocialMediaBuzz(UCIBaseRegression):
+	"""
+	Reference: https://archive.ics.uci.edu/ml/datasets/Buzz+in+social+media+
+	"""
+	def __init__(self, root_dir='./'):
+		dataset_path = os.path.join(root_dir, self.name)
+		url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/00248/regression.tar.gz'
+		extract_from_url(url, dataset_path)
+		file_path = os.path.join(dataset_path, 'regression', 'Twitter', 'Twitter.data')
+		names = ['NCD_%d' % i for i in range(7)]
+		names += ['AI_%d' % i for i in range(7)]
+		names += ['AS(NA)_%d' % i for i in range(7)]
+		names += ['BL_%d' % i for i in range(7)]
+		names += ['NAC_%d' % i for i in range(7)]
+		names += ['AS(NAC)_%d' % i for i in range(7)]
+		names += ['CS_%d' % i for i in range(7)]
+		names += ['AT_%d' % i for i in range(7)]
+		names += ['NA_%d' % i for i in range(7)]
+		names += ['ADL_%d' % i for i in range(7)]
+		names += ['NAD_%d' % i for i in range(7)]
+		names += ['annotation']
+
+		df = pd.read_csv(file_path, names=names)
+		self._df = df
+		y_columns = ['annotation']
+		x_columns = [_ for _ in df.columns if _ not in y_columns]
+		self.x = df[x_columns].values
+		self.y = df[y_columns].values
+		self.x_columns = x_columns
+		self.y_column = y_columns[0]
+
+
+
+
 class Superconductivity(UCIBaseRegression):
 	"""
 	Reference: https://archive.ics.uci.edu/ml/datasets/superconductivty+data
@@ -293,6 +409,23 @@ class YachtHydrodynamics(UCIBaseRegression):
 		self.y = df[y_columns].values
 		self.x_columns = x_columns
 		self.y_column = y_columns[0]
+
+
+
+class YearPredictionMSD(UCIBaseRegression):
+	"""
+	Reference: https://archive.ics.uci.edu/ml/datasets/YearPredictionMSD
+	"""
+	def __init__(self, root_dir='./'):
+		dataset_path = os.path.join(root_dir, self.name)
+		url = 'https://archive.ics.uci.edu/ml/machine-learning-databases/00203/YearPredictionMSD.txt.zip'
+		extract_from_url(url, dataset_path)		
+		file_path = os.path.join(dataset_path, 'YearPredictionMSD.txt')
+		df = pd.read_csv(file_path, header=None)
+		values = df.values
+		self.x = values[:, 1:]
+		self.y = values[:, 0][:, None]
+		self.y_column = 'y'
 
 
 
