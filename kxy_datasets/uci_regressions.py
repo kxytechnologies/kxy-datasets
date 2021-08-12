@@ -141,9 +141,7 @@ class BlogFeedback(UCIBaseRegression):
 		self.y_train = df_train[y_columns].values
 		self.y_test  = df_test[y_columns].values 
 		self.y = df[y_columns].values
-
-		self.x_columns = x_columns
-		self.y_column = y_columns[0]
+		self.y_column = 'y'
 
 
 
@@ -231,9 +229,7 @@ class FacebookComments(UCIBaseRegression):
 		self.y_train = df_train[y_columns].values
 		self.y_test  = df_test[y_columns].values 
 		self.y = df[y_columns].values
-
-		self.x_columns = x_columns
-		self.y_column = y_columns[0]
+		self.y_column = 'y'
 
 
 
