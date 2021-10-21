@@ -41,7 +41,7 @@ class HeartDisease(KaggleBaseClassification):
 		url = 's3://datasets.kxy.ai/classification/kaggle_heart_disease.csv'
 		df = pd.read_csv(url)
 		self._df = df
-		y_columns = ['target']
+		y_columns = ['output']
 		x_columns = [_ for _ in df.columns if _ not in y_columns]
 		self.x = df[x_columns].values
 		self.y = df[y_columns].values
