@@ -234,6 +234,8 @@ class Landsat(UCIBaseClassification):
         self.y_test  = df_test[y_columns].values 
         self.y = df[y_columns].values
         self.classes = list(set(list(self.y.flatten())))
+        self.y_column = y_columns[0]
+
 
 
 
@@ -250,6 +252,8 @@ class LetterRecognition(UCIBaseClassification):
         self.x = df[x_columns].values
         self.y = df[y_columns].values
         self.classes = list(set(list(self.y.flatten())))
+        self.y_column = y_columns[0]
+
 
 
 
@@ -266,6 +270,8 @@ class MagicGamma(UCIBaseClassification):
         self.x = df[x_columns].values
         self.y = df[y_columns].values
         self.classes = list(set(list(self.y.flatten())))
+        self.y_column = y_columns[0]
+
 
 
 
@@ -282,6 +288,8 @@ class SensorLessDrive(UCIBaseClassification):
         self.x = df[x_columns].values
         self.y = df[y_columns].values
         self.classes = list(set(list(self.y.flatten())))
+        self.y_column = y_columns[0]
+
 
 
 
